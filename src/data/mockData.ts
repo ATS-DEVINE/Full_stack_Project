@@ -1,0 +1,253 @@
+import { Product, Seller, Category, Coupon, CartItem } from "@/types/marketplace";
+
+export const categories: Category[] = [
+  { id: "1", name: "Vegetables", icon: "🥬", slug: "vegetables", productCount: 245 },
+  { id: "2", name: "Fruits", icon: "🍎", slug: "fruits", productCount: 189 },
+  { id: "3", name: "Dairy", icon: "🥛", slug: "dairy", productCount: 132 },
+  { id: "4", name: "Grains & Cereals", icon: "🌾", slug: "grains", productCount: 198 },
+  { id: "5", name: "Spices", icon: "🌶️", slug: "spices", productCount: 312 },
+  { id: "6", name: "Beverages", icon: "🍵", slug: "beverages", productCount: 156 },
+  { id: "7", name: "Pulses & Lentils", icon: "🫘", slug: "pulses", productCount: 87 },
+  { id: "8", name: "Oils & Ghee", icon: "🫒", slug: "oils", productCount: 64 },
+  { id: "9", name: "Dry Fruits", icon: "🥜", slug: "dry-fruits", productCount: 95 },
+  { id: "10", name: "Snacks", icon: "🍿", slug: "snacks", productCount: 210 },
+  { id: "11", name: "Bakery", icon: "🍞", slug: "bakery", productCount: 78 },
+  { id: "12", name: "Frozen Foods", icon: "🧊", slug: "frozen", productCount: 45 },
+];
+
+export const sellers: Seller[] = [
+  {
+    id: "s1", name: "Fresh Farm Organics", slug: "fresh-farm-organics",
+    logo: "/images/sellers/fresh-farm-logo.png", description: "Premium organic produce sourced directly from farms across Maharashtra.",
+    rating: 4.8, reviewCount: 1245, isVerified: true,
+    categories: ["Vegetables", "Fruits"], location: "Pune, Maharashtra",
+    totalProducts: 156, joinedDate: "2023-06-15",
+  },
+  {
+    id: "s2", name: "Spice Kingdom", slug: "spice-kingdom",
+    logo: "/images/sellers/spice-kingdom-logo.png", description: "India's finest spices from Kerala, directly from growers.",
+    rating: 4.9, reviewCount: 892, isVerified: true,
+    categories: ["Spices", "Dry Fruits"], location: "Kochi, Kerala",
+    totalProducts: 89, joinedDate: "2023-03-20",
+  },
+  {
+    id: "s3", name: "Desi Dairy Co.", slug: "desi-dairy-co",
+    logo: "/images/sellers/desi-dairy-logo.png", description: "Farm-fresh dairy products delivered within 24 hours.",
+    rating: 4.6, reviewCount: 567, isVerified: true,
+    categories: ["Dairy"], location: "Anand, Gujarat",
+    totalProducts: 45, joinedDate: "2023-09-10",
+  },
+  {
+    id: "s4", name: "Golden Grain Traders", slug: "golden-grain-traders",
+    logo: "/images/sellers/golden-grain-logo.png", description: "Bulk grains and cereals at wholesale prices for businesses.",
+    rating: 4.7, reviewCount: 423, isVerified: true,
+    categories: ["Grains & Cereals", "Pulses & Lentils"], location: "Indore, MP",
+    totalProducts: 112, joinedDate: "2023-01-05",
+  },
+  {
+    id: "s5", name: "Chai & More", slug: "chai-and-more",
+    logo: "/images/sellers/chai-more-logo.png", description: "Premium teas, coffees, and beverages from Assam and Darjeeling.",
+    rating: 4.5, reviewCount: 334, isVerified: false,
+    categories: ["Beverages"], location: "Guwahati, Assam",
+    totalProducts: 67, joinedDate: "2024-01-20",
+  },
+  {
+    id: "s6", name: "Pure Oils India", slug: "pure-oils-india",
+    logo: "/images/sellers/pure-oils-logo.png", description: "Cold-pressed oils and pure ghee from traditional methods.",
+    rating: 4.8, reviewCount: 256, isVerified: true,
+    categories: ["Oils & Ghee"], location: "Rajkot, Gujarat",
+    totalProducts: 34, joinedDate: "2023-11-01",
+  },
+];
+
+export const products: Product[] = [
+  {
+    id: "p1", name: "Organic Red Tomatoes", slug: "organic-red-tomatoes",
+    description: "Fresh, vine-ripened organic tomatoes. Perfect for salads, curries, and sauces. Grown without pesticides in the fertile lands of Maharashtra.",
+    category: "Vegetables", images: ["/images/products/tomatoes.jpg"], unit: "kg",
+    pricingTiers: [
+      { minQty: 1, maxQty: 10, price: 65 },
+      { minQty: 11, maxQty: 50, price: 55 },
+      { minQty: 51, maxQty: null, price: 45 },
+    ],
+    moq: 1, stock: 500, rating: 4.5, reviewCount: 89,
+    sellerId: "s1", sellerName: "Fresh Farm Organics", isVerified: true,
+    discount: 10, status: "active",
+  },
+  {
+    id: "p2", name: "Kerala Cardamom (Elaichi)", slug: "kerala-cardamom",
+    description: "Premium grade green cardamom from the hills of Kerala. Rich aroma and intense flavor for your biryani, chai, and sweets.",
+    category: "Spices", images: ["/images/products/cardamom.jpg"], unit: "kg",
+    pricingTiers: [
+      { minQty: 1, maxQty: 5, price: 2400 },
+      { minQty: 6, maxQty: 20, price: 2100 },
+      { minQty: 21, maxQty: null, price: 1850 },
+    ],
+    moq: 1, stock: 200, rating: 4.9, reviewCount: 234,
+    sellerId: "s2", sellerName: "Spice Kingdom", isVerified: true,
+    discount: 0, status: "active",
+  },
+  {
+    id: "p3", name: "Farm Fresh Paneer", slug: "farm-fresh-paneer",
+    description: "Soft, fresh paneer made from pure buffalo milk. No preservatives. Ideal for paneer butter masala, tikka, and more.",
+    category: "Dairy", images: ["/images/products/paneer.jpg"], unit: "kg",
+    pricingTiers: [
+      { minQty: 1, maxQty: 5, price: 340 },
+      { minQty: 6, maxQty: 20, price: 310 },
+      { minQty: 21, maxQty: null, price: 280 },
+    ],
+    moq: 1, stock: 150, rating: 4.6, reviewCount: 156,
+    sellerId: "s3", sellerName: "Desi Dairy Co.", isVerified: true,
+    discount: 5, status: "active",
+  },
+  {
+    id: "p4", name: "Basmati Rice (1121)", slug: "basmati-rice-1121",
+    description: "Premium long-grain 1121 Basmati rice. Extra-long grains, perfect for biryani and pulao. Aged for 2 years.",
+    category: "Grains & Cereals", images: ["/images/products/basmati-rice.jpg"], unit: "kg",
+    pricingTiers: [
+      { minQty: 5, maxQty: 25, price: 145 },
+      { minQty: 26, maxQty: 100, price: 125 },
+      { minQty: 101, maxQty: null, price: 110 },
+    ],
+    moq: 5, stock: 2000, rating: 4.8, reviewCount: 312,
+    sellerId: "s4", sellerName: "Golden Grain Traders", isVerified: true,
+    discount: 8, status: "active",
+  },
+  {
+    id: "p5", name: "Assam CTC Tea", slug: "assam-ctc-tea",
+    description: "Strong, full-bodied CTC tea from the gardens of Assam. Perfect for your daily chai. Rich copper color with malty flavor.",
+    category: "Beverages", images: ["/images/products/assam-tea.jpg"], unit: "kg",
+    pricingTiers: [
+      { minQty: 1, maxQty: 10, price: 320 },
+      { minQty: 11, maxQty: 50, price: 280 },
+      { minQty: 51, maxQty: null, price: 250 },
+    ],
+    moq: 1, stock: 800, rating: 4.5, reviewCount: 178,
+    sellerId: "s5", sellerName: "Chai & More", isVerified: false,
+    discount: 12, status: "active",
+  },
+  {
+    id: "p6", name: "Cold-Pressed Mustard Oil", slug: "cold-pressed-mustard-oil",
+    description: "Pure kachi ghani mustard oil. Traditional cold-pressed method preserves natural flavor and nutrients.",
+    category: "Oils & Ghee", images: ["/images/products/mustard-oil.jpg"], unit: "litre",
+    pricingTiers: [
+      { minQty: 1, maxQty: 10, price: 195 },
+      { minQty: 11, maxQty: 50, price: 175 },
+      { minQty: 51, maxQty: null, price: 160 },
+    ],
+    moq: 1, stock: 600, rating: 4.7, reviewCount: 134,
+    sellerId: "s6", sellerName: "Pure Oils India", isVerified: true,
+    discount: 0, status: "active",
+  },
+  {
+    id: "p7", name: "Fresh Green Capsicum", slug: "fresh-green-capsicum",
+    description: "Crisp, fresh green capsicum (shimla mirch). Great for stir-fries, salads, and stuffed capsicum recipes.",
+    category: "Vegetables", images: ["/images/products/capsicum.jpg"], unit: "kg",
+    pricingTiers: [
+      { minQty: 1, maxQty: 10, price: 80 },
+      { minQty: 11, maxQty: 50, price: 68 },
+      { minQty: 51, maxQty: null, price: 58 },
+    ],
+    moq: 1, stock: 300, rating: 4.3, reviewCount: 67,
+    sellerId: "s1", sellerName: "Fresh Farm Organics", isVerified: true,
+    discount: 15, status: "active",
+  },
+  {
+    id: "p8", name: "Kashmiri Red Chilli Powder", slug: "kashmiri-red-chilli",
+    description: "Authentic Kashmiri lal mirch powder. Deep red color with mild heat. Perfect for tandoori dishes and gravies.",
+    category: "Spices", images: ["/images/products/kashmiri-chilli.jpg"], unit: "kg",
+    pricingTiers: [
+      { minQty: 1, maxQty: 5, price: 450 },
+      { minQty: 6, maxQty: 25, price: 390 },
+      { minQty: 26, maxQty: null, price: 340 },
+    ],
+    moq: 1, stock: 400, rating: 4.7, reviewCount: 198,
+    sellerId: "s2", sellerName: "Spice Kingdom", isVerified: true,
+    discount: 5, status: "active",
+  },
+  {
+    id: "p9", name: "Alphonso Mangoes (Hapus)", slug: "alphonso-mangoes",
+    description: "Premium Ratnagiri Alphonso mangoes. The king of mangoes with unmatched sweetness and aroma. Naturally ripened.",
+    category: "Fruits", images: ["/images/products/alphonso-mango.jpg"], unit: "dozen",
+    pricingTiers: [
+      { minQty: 1, maxQty: 5, price: 850 },
+      { minQty: 6, maxQty: 20, price: 750 },
+      { minQty: 21, maxQty: null, price: 650 },
+    ],
+    moq: 1, stock: 100, rating: 4.9, reviewCount: 445,
+    sellerId: "s1", sellerName: "Fresh Farm Organics", isVerified: true,
+    discount: 0, status: "active",
+  },
+  {
+    id: "p10", name: "Toor Dal (Arhar)", slug: "toor-dal",
+    description: "Premium quality toor dal, cleaned and polished. Cooks quickly with a rich, earthy flavor. Staple for daily dal.",
+    category: "Pulses & Lentils", images: ["/images/products/toor-dal.jpg"], unit: "kg",
+    pricingTiers: [
+      { minQty: 5, maxQty: 25, price: 155 },
+      { minQty: 26, maxQty: 100, price: 140 },
+      { minQty: 101, maxQty: null, price: 125 },
+    ],
+    moq: 5, stock: 1500, rating: 4.4, reviewCount: 201,
+    sellerId: "s4", sellerName: "Golden Grain Traders", isVerified: true,
+    discount: 6, status: "active",
+  },
+  {
+    id: "p11", name: "Cashew Nuts (W240)", slug: "cashew-nuts-w240",
+    description: "Premium W240 grade whole cashews from Goa. Perfectly roasted with just a hint of salt. Great for snacking or cooking.",
+    category: "Dry Fruits", images: ["/images/products/cashew-nuts.jpg"], unit: "kg",
+    pricingTiers: [
+      { minQty: 1, maxQty: 5, price: 890 },
+      { minQty: 6, maxQty: 25, price: 820 },
+      { minQty: 26, maxQty: null, price: 750 },
+    ],
+    moq: 1, stock: 350, rating: 4.8, reviewCount: 167,
+    sellerId: "s2", sellerName: "Spice Kingdom", isVerified: true,
+    discount: 0, status: "active",
+  },
+  {
+    id: "p12", name: "A2 Cow Ghee", slug: "a2-cow-ghee",
+    description: "Pure A2 desi cow ghee made using traditional bilona method. Rich golden color and authentic aroma. No additives.",
+    category: "Oils & Ghee", images: ["/images/products/a2-ghee.jpg"], unit: "litre",
+    pricingTiers: [
+      { minQty: 1, maxQty: 5, price: 750 },
+      { minQty: 6, maxQty: 15, price: 690 },
+      { minQty: 16, maxQty: null, price: 620 },
+    ],
+    moq: 1, stock: 200, rating: 4.9, reviewCount: 289,
+    sellerId: "s6", sellerName: "Pure Oils India", isVerified: true,
+    discount: 3, status: "active",
+  },
+];
+
+export const coupons: Coupon[] = [
+  { id: "c1", code: "WELCOME20", type: "percentage", value: 20, minOrderValue: 500, maxUses: 1, expiryDate: "2026-04-30", isActive: true },
+  { id: "c2", code: "SAVE100", type: "flat", value: 100, minOrderValue: 1000, maxUses: 3, expiryDate: "2026-03-31", isActive: true },
+  { id: "c3", code: "SPICE15", type: "percentage", value: 15, minOrderValue: 300, maxUses: 5, expiryDate: "2026-05-15", isActive: true },
+];
+
+export const heroBanners = [
+  {
+    id: 1,
+    title: "Fresh From Farm to Your Door",
+    subtitle: "Get organic vegetables & fruits at wholesale prices",
+    cta: "Shop Now",
+    bgClass: "bg-gradient-hero",
+    bgImage: "/images/hero-farm.jpg",
+  },
+  {
+    id: 2,
+    title: "Spice Up Your Business",
+    subtitle: "Premium Indian spices in bulk — direct from growers",
+    cta: "Explore Spices",
+    bgClass: "bg-gradient-accent",
+    bgImage: "/images/hero-spices.jpg",
+  },
+  {
+    id: 3,
+    title: "Flat ₹100 Off on First Order",
+    subtitle: "Use code WELCOME20 at checkout",
+    cta: "Claim Offer",
+    bgClass: "bg-gradient-primary",
+    bgImage: "/images/hero-offer.jpg",
+  },
+];
